@@ -4,7 +4,7 @@ const Inventory = () => {
     return (
         <div>
             <h2>This is Inventory.</h2>
-            <h3>Khankir Pula Login Kor</h3>
+            <h3>Please Login first To Enjoy this site</h3>
         </div>
     );
 };
