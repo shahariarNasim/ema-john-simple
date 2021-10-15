@@ -10,10 +10,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
 
     const signInUsingGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user);
-            })
+       return signInWithPopup(auth, googleProvider);
+          
     }
 
     const logOut = () =>{
@@ -24,12 +22,13 @@ const useFirebase = () => {
     }
    // observe wether user auth state change or not 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
              setUser(user);
             } 
             
           });
+          return unsubscribe;
           
     }, [])
 
